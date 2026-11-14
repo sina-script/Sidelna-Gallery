@@ -1,6 +1,6 @@
 import styles from "./Navigation.module.css";
 
-function Navigation({ shoppingCardsList }) {
+function Navigation({ shoppingCardsList, favoriteCardsList }) {
   return (
     <nav className={styles.bottomNav} aria-label="Main navigation">
       <div className={`${styles.navItem} ${styles.active}`}>
@@ -47,10 +47,13 @@ function Navigation({ shoppingCardsList }) {
 
           <div className={styles.previewTotal}>
             <span>Total</span>
-            <strong>$
-              {shoppingCardsList.reduce((total, product) => {
-                return total + product.price;
-              }, 0).toLocaleString()}
+            <strong>
+              $
+              {shoppingCardsList
+                .reduce((total, product) => {
+                  return total + product.price;
+                }, 0)
+                .toLocaleString()}
             </strong>
           </div>
         </div>
@@ -65,18 +68,18 @@ function Navigation({ shoppingCardsList }) {
         <div className={`${styles.previewPanel} ${styles.wishlistPreview}`}>
           <div className={styles.previewHeader}>
             <span>Saved Pieces</span>
-            <span>3 items</span>
+            <span>{favoriteCardsList.length} {favoriteCardsList.length>0?"ITEMS":"ITEM"}</span>
           </div>
 
-          <div className={styles.previewProduct}>
+              {favoriteCardsList.map((product)=>{
+                return (          <div className={styles.previewProduct}>
             <img
-              src="/images/placeholder.jpg"
-              alt="Pearl Hour Bracelet"
+              src={product.img}
+              alt="product image"
               className={styles.previewImage}
             />
             <div>
-              <strong>Pearl Hour Bracelet</strong>
-              <small>Soft ivory · $32</small>
+              <strong>{product.title}</strong>
             </div>
             <div className={styles.previewItemActions}>
               <span className={styles.heartMark}>♡</span>
@@ -88,11 +91,12 @@ function Navigation({ shoppingCardsList }) {
                 🗑
               </button>
             </div>
-          </div>
+          </div>)
+              })}
         </div>
 
         <span className={styles.navIcon}>♡</span>
-        <small>Wishlist</small>
+        <small>Favorites</small>
       </div>
 
       <div className={styles.navItem}>

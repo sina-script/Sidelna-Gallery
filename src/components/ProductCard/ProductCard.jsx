@@ -7,6 +7,7 @@ function ProductCard({
   price,
   img,
   addToShoppingCard,
+  addToFavoriteList
 }) {
   return (
     <article className={styles.productCard}>
@@ -26,7 +27,7 @@ function ProductCard({
           <button type="button" onClick={() => addToShoppingCard(id)}>
             Add to Bag
           </button>
-          <button type="button" className={styles.save}>
+          <button type="button" className={styles.save} onClick={()=>addToFavoriteList(id)}>
             ♡ Save
           </button>
         </div>

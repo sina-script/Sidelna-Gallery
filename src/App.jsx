@@ -1,12 +1,12 @@
 import { useState } from "react";
-import products from "./../data/products";
+import productsList from "./../data/products";
 import ProductCard from "./components/ProductCard/ProductCard";
 import Navigation from "./components/Navigation/Navigation";
 import "./App.css";
 
 function App() {
-  const [productsList, setProductsList] = useState(products);
   const [shoppingCardsList, setShoppingCardsList] = useState([]);
+  const [favoriteCardsList, setFavoriteCardsList] = useState([]);
 
   const addToShoppingCard = (productId) => {
     const foundProduct = productsList.find((product) => {
@@ -14,6 +14,14 @@ function App() {
     });
 
     setShoppingCardsList([...shoppingCardsList, foundProduct]);
+  };
+
+  const addToFavoriteList = (productId) => {
+    const foundProduct = productsList.find((product) => {
+      return product.id == productId;
+    });
+
+    setFavoriteCardsList([...favoriteCardsList, foundProduct]);
   };
 
   return (
@@ -50,6 +58,7 @@ function App() {
                   key={product.id}
                   {...product}
                   addToShoppingCard={addToShoppingCard}
+                  addToFavoriteList={addToFavoriteList}
                 ></ProductCard>
               );
             })}
@@ -62,7 +71,7 @@ function App() {
         </footer>
       </main>
 
-      <Navigation shoppingCardsList={shoppingCardsList}></Navigation>
+      <Navigation shoppingCardsList={shoppingCardsList} favoriteCardsList={favoriteCardsList}></Navigation>
     </div>
   );
 }
