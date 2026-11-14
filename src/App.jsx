@@ -1,6 +1,5 @@
 import "./App.css";
-
-export default function App() {
+function App() {
   return (
     <div className="site">
       <header className="header">
@@ -285,7 +284,12 @@ export default function App() {
                 <strong>Solstice Ring</strong>
                 <small>Gold · $24</small>
               </div>
-              <b>$24</b>
+              <div className="preview-item-actions">
+                <b>$24</b>
+                <button type="button" className="remove-item" aria-label="Remove item">
+                  🗑
+                </button>
+              </div>
             </div>
 
             <div className="preview-product">
@@ -294,7 +298,12 @@ export default function App() {
                 <strong>Rosie Drop Earrings</strong>
                 <small>Rose gold · $26</small>
               </div>
-              <b>$26</b>
+              <div className="preview-item-actions">
+                <b>$26</b>
+                <button type="button" className="remove-item" aria-label="Remove item">
+                  🗑
+                </button>
+              </div>
             </div>
 
             <div className="preview-total">
@@ -322,7 +331,12 @@ export default function App() {
                 <strong>Pearl Hour Bracelet</strong>
                 <small>Soft ivory · $32</small>
               </div>
-              <span className="heart-mark">♡</span>
+              <div className="preview-item-actions">
+                <span className="heart-mark">♡</span>
+                <button type="button" className="remove-item" aria-label="Remove item">
+                  🗑
+                </button>
+              </div>
             </div>
 
             <div className="preview-product">
@@ -331,7 +345,12 @@ export default function App() {
                 <strong>Silver Moon Ring</strong>
                 <small>Silver · $22</small>
               </div>
-              <span className="heart-mark">♡</span>
+              <div className="preview-item-actions">
+                <span className="heart-mark">♡</span>
+                <button type="button" className="remove-item" aria-label="Remove item">
+                  🗑
+                </button>
+              </div>
             </div>
 
             <div className="preview-product">
@@ -340,7 +359,12 @@ export default function App() {
                 <strong>Petal Pearl Earrings</strong>
                 <small>Warm pearl · $25</small>
               </div>
-              <span className="heart-mark">♡</span>
+              <div className="preview-item-actions">
+                <span className="heart-mark">♡</span>
+                <button type="button" className="remove-item" aria-label="Remove item">
+                  🗑
+                </button>
+              </div>
             </div>
 
             <div className="preview-button">View Wishlist</div>
@@ -358,3 +382,7 @@ export default function App() {
     </div>
   );
 }
+
+
+
+export default App;

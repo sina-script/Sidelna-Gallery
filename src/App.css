@@ -1,4 +1,3 @@
-
 :root {
   --ink: #11110f;
   --ink-soft: #191915;
@@ -224,7 +223,10 @@ button {
   border: 1px solid var(--card-line);
   border-radius: 4px;
   overflow: hidden;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .product-card:hover {
@@ -261,7 +263,11 @@ button {
   place-items: center;
   overflow: hidden;
   background:
-    radial-gradient(circle at 51% 33%, rgba(255, 255, 255, 0.13), transparent 15%),
+    radial-gradient(
+      circle at 51% 33%,
+      rgba(255, 255, 255, 0.13),
+      transparent 15%
+    ),
     radial-gradient(circle at 50% 55%, #4c4437 0%, #28251f 37%, #161613 76%);
 }
 
@@ -285,25 +291,41 @@ button {
 
 .gold .product-art {
   background:
-    radial-gradient(circle at 51% 33%, rgba(255, 241, 205, 0.16), transparent 15%),
+    radial-gradient(
+      circle at 51% 33%,
+      rgba(255, 241, 205, 0.16),
+      transparent 15%
+    ),
     radial-gradient(circle at 50% 55%, #4b3c25 0%, #282116 41%, #15130e 78%);
 }
 
 .pearl .product-art {
   background:
-    radial-gradient(circle at 51% 30%, rgba(255, 255, 255, 0.2), transparent 16%),
+    radial-gradient(
+      circle at 51% 30%,
+      rgba(255, 255, 255, 0.2),
+      transparent 16%
+    ),
     radial-gradient(circle at 50% 55%, #504943 0%, #2b2825 42%, #171615 78%);
 }
 
 .blush .product-art {
   background:
-    radial-gradient(circle at 51% 30%, rgba(255, 223, 221, 0.14), transparent 16%),
+    radial-gradient(
+      circle at 51% 30%,
+      rgba(255, 223, 221, 0.14),
+      transparent 16%
+    ),
     radial-gradient(circle at 50% 55%, #4d3430 0%, #2c201e 42%, #171211 78%);
 }
 
 .silver .product-art {
   background:
-    radial-gradient(circle at 51% 30%, rgba(232, 242, 248, 0.15), transparent 16%),
+    radial-gradient(
+      circle at 51% 30%,
+      rgba(232, 242, 248, 0.15),
+      transparent 16%
+    ),
     radial-gradient(circle at 50% 55%, #343a3e 0%, #222628 42%, #111314 78%);
 }
 
@@ -435,7 +457,9 @@ button {
   font-weight: 500;
   letter-spacing: 0.3px;
   text-transform: uppercase;
-  transition: background 0.22s ease, color 0.22s ease;
+  transition:
+    background 0.22s ease,
+    color 0.22s ease;
 }
 
 .product-actions button:hover {
@@ -554,14 +578,20 @@ button {
   padding: 15px;
   border: 1px solid rgba(227, 202, 153, 0.42);
   border-radius: 3px;
-  background:
-    linear-gradient(145deg, rgba(39, 36, 31, 0.98), rgba(18, 18, 16, 0.98));
+  background: linear-gradient(
+    145deg,
+    rgba(39, 36, 31, 0.98),
+    rgba(18, 18, 16, 0.98)
+  );
   box-shadow: 0 25px 55px rgba(0, 0, 0, 0.48);
   color: var(--paper);
   opacity: 0;
   visibility: hidden;
   transform: translate(-50%, 12px);
-  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease,
+    visibility 0.22s ease;
 }
 
 .preview-panel::before {
@@ -571,7 +601,12 @@ button {
   bottom: 11px;
   left: 14px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--champagne), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--champagne),
+    transparent
+  );
   opacity: 0.35;
 }
 
@@ -763,6 +798,36 @@ button {
   border-color: #a3abb3;
   background: #d7e1e5;
 }
+
+/* اکشن‌های آیتم‌های پیش‌نمایش (قیمت/قلب + سطل زباله) */
+.preview-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.remove-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 1px solid rgba(245, 241, 233, 0.15);
+  border-radius: 2px;
+  background: transparent;
+  color: #8b8376;
+  font-size: 11px;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.remove-item:hover {
+  border-color: var(--rose);
+  background: rgba(183, 126, 121, 0.15);
+  color: var(--rose);
+}
+
 
 @media (max-width: 920px) {
   .site {
