@@ -24,6 +24,22 @@ function App() {
     setFavoriteCardsList([...favoriteCardsList, foundProduct]);
   };
 
+  const removeShoppingCardProduct = (productId) => {
+    const newShoppingCardsList = shoppingCardsList.filter((product) => {
+      return product.id != productId;
+    });
+
+    setShoppingCardsList(newShoppingCardsList);
+  };
+
+  const removeFavoriteProduct = (productId) => {
+    const newFavoriteCardsList = favoriteCardsList.filter((product) => {
+      return product.id != productId;
+    });
+
+    setFavoriteCardsList(newFavoriteCardsList);
+  };
+
   return (
     <div className="site">
       <header className="header">
@@ -71,7 +87,12 @@ function App() {
         </footer>
       </main>
 
-      <Navigation shoppingCardsList={shoppingCardsList} favoriteCardsList={favoriteCardsList}></Navigation>
+      <Navigation
+        shoppingCardsList={shoppingCardsList}
+        favoriteCardsList={favoriteCardsList}
+        removeShoppingCardProduct={removeShoppingCardProduct}
+        removeFavoriteProduct={removeFavoriteProduct}
+      ></Navigation>
     </div>
   );
 }

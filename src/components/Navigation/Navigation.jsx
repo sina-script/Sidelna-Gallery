@@ -1,6 +1,6 @@
 import styles from "./Navigation.module.css";
 
-function Navigation({ shoppingCardsList, favoriteCardsList }) {
+function Navigation({ shoppingCardsList, favoriteCardsList ,removeShoppingCardProduct,removeFavoriteProduct}) {
   return (
     <nav className={styles.bottomNav} aria-label="Main navigation">
       <div className={`${styles.navItem} ${styles.active}`}>
@@ -37,6 +37,7 @@ function Navigation({ shoppingCardsList, favoriteCardsList }) {
                     type="button"
                     className={styles.removeItem}
                     aria-label="Remove item"
+                    onClick={()=>removeShoppingCardProduct(product.id)}
                   >
                     🗑
                   </button>
@@ -87,6 +88,7 @@ function Navigation({ shoppingCardsList, favoriteCardsList }) {
                 type="button"
                 className={styles.removeItem}
                 aria-label="Remove item"
+                onClick={()=>removeFavoriteProduct(product.id)}
               >
                 🗑
               </button>
