@@ -6,15 +6,14 @@ import "./App.css";
 
 function App() {
   const [productsList, setProductsList] = useState(products);
-  const [shoppingCardsList, setShoppingCardsList] = [];
+  const [shoppingCardsList, setShoppingCardsList] = useState([]);
 
   const addToShoppingCard = (productId) => {
     const foundProduct = productsList.find((product) => {
       return product.id == productId;
     });
 
-    console.log(foundProduct);
-    
+    setShoppingCardsList([...shoppingCardsList, foundProduct]);
   };
 
   return (
@@ -46,7 +45,13 @@ function App() {
 
           <div className="product-grid">
             {productsList.map((product) => {
-              return <ProductCard key={product.id} {...product} addToShoppingCard={addToShoppingCard}></ProductCard>;
+              return (
+                <ProductCard
+                  key={product.id}
+                  {...product}
+                  addToShoppingCard={addToShoppingCard}
+                ></ProductCard>
+              );
             })}
           </div>
         </section>
@@ -57,8 +62,7 @@ function App() {
         </footer>
       </main>
 
-            <Navigation></Navigation>
-            
+      <Navigation shoppingCardsList={shoppingCardsList}></Navigation>
     </div>
   );
 }
