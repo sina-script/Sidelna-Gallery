@@ -1,0 +1,208 @@
+.productCard {
+  --metal: #d1b16f;
+  --stone: #f0d89f;
+  position: relative;
+  min-width: 0;
+  background: linear-gradient(145deg, #201f1b, #141412 75%);
+  border: 1px solid var(--card-line, rgba(199, 168, 107, 0.22));
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.productCard:hover {
+  z-index: 1;
+  border-color: rgba(227, 202, 153, 0.68);
+  box-shadow: 0 24px 45px rgba(0, 0, 0, 0.34);
+  transform: translateY(-6px);
+}
+
+/* Art container */
+.productArt {
+  position: relative;
+  display: grid;
+  height: 192px;
+  place-items: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 51% 33%, rgba(255, 255, 255, 0.13), transparent 15%),
+    radial-gradient(circle at 50% 55%, #4c4437 0%, #28251f 37%, #161613 76%);
+}
+
+.productArt::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.productArt::after {
+  content: "";
+  position: absolute;
+  bottom: 24px;
+  width: 84px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.38);
+  filter: blur(6px);
+}
+
+/* Single default ornament (ring with stone) */
+.ornament {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 68px;
+  height: 68px;
+  border: 9px solid var(--metal);
+  border-radius: 50%;
+  box-shadow:
+    inset 2px 2px 5px rgba(255, 255, 255, 0.4),
+    inset -3px -2px 6px rgba(0, 0, 0, 0.25);
+  filter: drop-shadow(3px 8px 8px rgba(0, 0, 0, 0.45));
+  transform: rotate(-25deg);
+}
+
+.ornament::before {
+  content: "";
+  position: absolute;
+  top: -24px;
+  left: 11px;
+  width: 25px;
+  height: 25px;
+  border: 3px solid var(--metal);
+  border-radius: 5px;
+  background: var(--stone);
+  box-shadow:
+    inset 4px 3px 5px rgba(255, 255, 255, 0.7),
+    0 0 18px rgba(255, 234, 182, 0.4);
+  transform: rotate(45deg);
+}
+
+/* Product Info */
+.productInfo {
+  position: relative;
+  padding: 15px 15px 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent);
+}
+
+.productMeta {
+  display: flex;
+  justify-content: space-between;
+  color: #9e9587;
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.productInfo h3 {
+  min-height: 40px;
+  margin: 8px 0 15px;
+  color: var(--paper, #f5f1e9);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: -0.4px;
+  line-height: 1.12;
+}
+
+.productActions {
+  display: flex;
+  gap: 7px;
+}
+
+.productActions button {
+  min-height: 33px;
+  flex: 1;
+  border: 1px solid var(--champagne, #c7a86b);
+  border-radius: 0;
+  background: var(--champagne, #c7a86b);
+  color: #17130d;
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.22s ease, color 0.22s ease;
+}
+
+.productActions button:hover {
+  background: var(--champagne-light, #e3ca99);
+}
+
+.productActions .save {
+  flex: 0 0 67px;
+  border-color: rgba(245, 241, 233, 0.27);
+  background: transparent;
+  color: var(--paper, #f5f1e9);
+}
+
+.productActions .save:hover {
+  border-color: var(--rose, #b77e79);
+  background: var(--rose, #b77e79);
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .productArt {
+    height: 142px;
+  }
+
+  .productArt::before {
+    inset: 8px;
+  }
+
+  .ornament {
+    width: 55px;
+    height: 55px;
+    border-width: 8px;
+  }
+
+  .ornament::before {
+    top: -19px;
+    left: 9px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .productInfo {
+    padding: 11px;
+  }
+
+  .productInfo h3 {
+    min-height: 34px;
+    margin: 7px 0 11px;
+    font-size: 15px;
+  }
+
+  .productActions {
+    gap: 5px;
+  }
+
+  .productActions button {
+    min-height: 29px;
+    padding: 0 5px;
+    font-size: 7px;
+  }
+
+  .productActions .save {
+    flex-basis: 51px;
+  }
+}
+
+@media (max-width: 370px) {
+  .productArt {
+    height: 124px;
+  }
+
+  .productActions {
+    flex-direction: column;
+  }
+
+  .productActions .save {
+    flex-basis: auto;
+  }
+}
