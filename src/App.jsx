@@ -1,5 +1,21 @@
+import { useState } from "react";
+import products from "./../data/products";
+import ProductCard from "./components/ProductCard/ProductCard";
 import "./App.css";
+
 function App() {
+  const [productsList, setProductsList] = useState(products);
+  const [shoppingCardsList, setShoppingCardsList] = [];
+
+  const addToShoppingCard = (productId) => {
+    const foundProduct = productsList.find((product) => {
+      return product.id == productId;
+    });
+
+    console.log(foundProduct);
+    
+  };
+
   return (
     <div className="site">
       <header className="header">
@@ -28,7 +44,9 @@ function App() {
           </div>
 
           <div className="product-grid">
-            
+            {productsList.map((product) => {
+              return <ProductCard key={product.id} {...product} addToShoppingCard={addToShoppingCard}></ProductCard>;
+            })}
           </div>
         </section>
 
@@ -59,7 +77,11 @@ function App() {
               </div>
               <div className="preview-item-actions">
                 <b>$24</b>
-                <button type="button" className="remove-item" aria-label="Remove item">
+                <button
+                  type="button"
+                  className="remove-item"
+                  aria-label="Remove item"
+                >
                   🗑
                 </button>
               </div>
@@ -73,7 +95,11 @@ function App() {
               </div>
               <div className="preview-item-actions">
                 <b>$26</b>
-                <button type="button" className="remove-item" aria-label="Remove item">
+                <button
+                  type="button"
+                  className="remove-item"
+                  aria-label="Remove item"
+                >
                   🗑
                 </button>
               </div>
@@ -106,7 +132,11 @@ function App() {
               </div>
               <div className="preview-item-actions">
                 <span className="heart-mark">♡</span>
-                <button type="button" className="remove-item" aria-label="Remove item">
+                <button
+                  type="button"
+                  className="remove-item"
+                  aria-label="Remove item"
+                >
                   🗑
                 </button>
               </div>
@@ -120,7 +150,11 @@ function App() {
               </div>
               <div className="preview-item-actions">
                 <span className="heart-mark">♡</span>
-                <button type="button" className="remove-item" aria-label="Remove item">
+                <button
+                  type="button"
+                  className="remove-item"
+                  aria-label="Remove item"
+                >
                   🗑
                 </button>
               </div>
@@ -134,7 +168,11 @@ function App() {
               </div>
               <div className="preview-item-actions">
                 <span className="heart-mark">♡</span>
-                <button type="button" className="remove-item" aria-label="Remove item">
+                <button
+                  type="button"
+                  className="remove-item"
+                  aria-label="Remove item"
+                >
                   🗑
                 </button>
               </div>
@@ -155,7 +193,5 @@ function App() {
     </div>
   );
 }
-
-
 
 export default App;
